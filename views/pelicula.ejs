@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeliculasAdmin</title>
+    <link rel="stylesheet" href="/css/pelicula.css">
+    <script src="https://kit.fontawesome.com/2811698395.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Prata&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <section class="section-menu">
+        <header>
+            <%- include('./componentes/menu.ejs'); %>  
+        </header>
+    </section>
+
+    <section class="detalle">
+        <h3>Editar Pelicula</h3>
+    </section>
+
+    <section class="section-editor">
+        <div class="caja-editor">
+            <% laPelicula.forEach(function(x) { %>
+                <div class="texto-edit">
+                    <h3><%= x.nombre  %></h3>
+                    <img src="<%= x.imagen  %>" alt="">
+                </div>
+
+                <div class="form-edit">
+                    <form action="/editPelicula" method="POST">
+                        <div class="campos">
+                            <input hidden type="text" name="id" value="<%= x._id  %>" placeholder="Nombre de pelicula" />
+                            <input type="text" name="enombre" value="<%= x.nombre  %>" placeholder="Nombre de pelicula" />
+                            <input type="text" name="edirector" value="<%= x.director  %>" placeholder="Director" />
+                            <input type="text" name="eimagen" value="<%= x.imagen  %>" placeholder="Imagen" />
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            <% }); %>
+
+        </div>
+    </section>
+
+</body>
+
+</html>
