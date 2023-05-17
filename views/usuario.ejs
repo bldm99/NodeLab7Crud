@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UsuariosAdmin</title>
+    <link rel="stylesheet" href="/css/pelicula.css">
+    <script src="https://kit.fontawesome.com/2811698395.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Prata&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <section class="section-menu">
+        <header>
+            <%- include('./componentes/menu.ejs'); %>  
+        </header>
+    </section>
+
+    <section class="detalle">
+        <h3>Editar Usuario</h3>
+    </section>
+
+    <section class="section-editor">
+        <div class="caja-editor">
+            <% elUsuario.forEach(function(x) { %>
+                <div class="texto-edit">
+                    <h3><%= x.name  %></h3>
+                    <img src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png" alt="">
+                </div>
+
+                <div class="form-edit">
+                    <form action="/editUsuario" method="POST">
+                        <div class="campos">
+                            <input hidden type="text" name="id" value="<%= x._id  %>" placeholder="Nombre de usuario" />
+                            <input type="text" name="ename" value="<%= x.name  %>" placeholder="Nombre de usuario" />
+                            <input type="text" name="eemail" value="<%= x.email  %>" placeholder="Email" />
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            <% }); %>
+
+        </div>
+    </section>
+
+</body>
+
+</html>

@@ -15,25 +15,83 @@
 
     <section class="section-menu">
         <header>
-            <%- include('./componentes/menu.ejs'); %>  
+            <%- include('./componentes/menu.ejs'); %>
         </header>
+    </section>
+
+    <section class="formularios">
+        <h1>Usuarios</h1>
+        <form action="/users" method="POST">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Crear Usuario</button>
+        </form>
+        <hr>
+        <h2>Peliculas</h2>
+       
+
     </section>
 
 
 
     <section class="registrar">
         Formuario de registros
-        <div >
+        <div>
             <form action="/savePelicula" method="POST">
                 <div class="ingresos">
-                    <input  type="text" name="nombre" placeholder="Nombre de pelicula" required/>
-                    <input  type="text" name="director" placeholder="Director" required/>
-                    <input  type="text" name="imagen" placeholder="Imagen" required/>
+                    <input type="text" name="nombre" placeholder="Nombre de pelicula" required />
+                    <input type="text" name="director" placeholder="Director" required />
+                    <input type="text" name="imagen" placeholder="Imagen" required />
                 </div>
                 <button type="submit">Submit</button>
             </form>
         </div>
-    </section> 
+        <hr>
+    </section>
+    
+
+    <section class="caja-peliculas">
+        <div class="contenedor-pe">
+
+            <div class="titulop">
+                <h2>Lista de usuarios</h2>
+            </div>
+            <div class="all-pelicula">
+                <% usuario.forEach(function(x) { %>
+                    <div class="pelicula">
+                        <div class="unidad uni2">
+                            <img class="contact" src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png" alt="">
+
+        
+                            <h5>
+                                <%= x.email%>
+                            </h5>
+                            <div class="acciones">
+                                <a href="/usuario/<%= x._id %>" style="font-size: 20px;"><i
+                                        class="fa-sharp fa-solid fa-pen-to-square"
+                                        style="color: #ffffff; font-size: 35px;"></i></a>
+                                <a href="/eliminarusu/<%= x._id %>" style="font-size: 20px;"><i
+                                        class="fa-solid fa-trash-can" style="color: #ffffff; font-size: 35px;"></i></a>
+                            </div>
+
+                        </div>
+                        <h5>
+                            <%= x.name%>
+                        </h5>
+                    </div>
+                    <% }); %>
+            </div>
+
+        </div>
+
+
+    </section>
+
+    
 
     <section class="caja-peliculas">
         <div class="contenedor-pe">
@@ -46,28 +104,35 @@
                     <div class="pelicula">
                         <div class="unidad">
                             <img src="<%= x.imagen %>" alt="">
-                            
+
                             <div class="estreno">
-                                <h4>Fecha de Estreno 2023</h4> 
+                                <h4>Fecha de Estreno 2023</h4>
                             </div>
-                            <h5><%= x.director %></h5>
+                            <h5>
+                                <%= x.director %>
+                            </h5>
                             <div class="acciones">
-                                <a href="/pelicula/<%= x._id %>"  style="font-size: 20px;"><i class="fa-sharp fa-solid fa-pen-to-square" style="color: #ffffff; font-size: 35px;"></i></a>
-                                <a href="/eliminar/<%= x._id %>"  style="font-size: 20px;"><i class="fa-solid fa-trash-can" style="color: #ffffff; font-size: 35px;"></i></a>  
+                                <a href="/pelicula/<%= x._id %>" style="font-size: 20px;"><i
+                                        class="fa-sharp fa-solid fa-pen-to-square"
+                                        style="color: #ffffff; font-size: 35px;"></i></a>
+                                <a href="/eliminar/<%= x._id %>" style="font-size: 20px;"><i
+                                        class="fa-solid fa-trash-can" style="color: #ffffff; font-size: 35px;"></i></a>
                             </div>
-                            
+
                         </div>
-                        <h5><%= x.nombre %></h5>
+                        <h5>
+                            <%= x.nombre %>
+                        </h5>
                     </div>
-                <% }); %>
+                    <% }); %>
             </div>
 
         </div>
-        
+
 
     </section>
 
-    
+
 </body>
 
 </html>

@@ -9,17 +9,22 @@ body{
 /*------------------------Css Menu*/
 .caja-menu {
     background: rgb(0, 0, 8);
-    padding: 12px;
+   
     color: rgb(0, 177, 0);
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0;
+    position: fixed;
+    z-index: 1;
+    padding: 0px 2px;
+    width: 100%;
+    top: 0;
 }
 
 .nombre a{
     text-decoration: none;
-    color: rgb(0, 177, 0);
+    color: rgb(146, 252, 25);
     
 }
 
@@ -64,6 +69,10 @@ body{
 }
 
 /*---------------------End menu css*/
+
+.formularios{
+    padding-top: 70px;
+}
 
 .registrar{
     padding: 10px 5px;
@@ -135,8 +144,17 @@ form button{
 
 .pelicula .unidad img{
     width: 100%;
-    object-fit: cover;
+    object-fit:cover;
 }
+.pelicula .uni2 img{
+    width: 40%;
+    aspect-ratio: 4/3;
+    object-fit: contain;
+    
+}
+
+
+
 .pelicula .unidad h5{
     position: absolute;
     background: rgba(0, 0, 0, 0.348);
